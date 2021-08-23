@@ -43,10 +43,10 @@ public class RegisterActivity extends AppCompatActivity {
 
 //        FirebaseApp.initializeApp();
 
-        username = findViewById(R.id.username);
-        name = findViewById(R.id.name);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        username = (EditText) findViewById(R.id.username);
+        name = (EditText) findViewById(R.id.name);
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.password);
         register = findViewById(R.id.register);
         loginUser = findViewById(R.id.login_user);
 
@@ -87,9 +87,9 @@ public class RegisterActivity extends AppCompatActivity {
             public void onSuccess(AuthResult authResult) {
 
                 HashMap<String, Object> map = new HashMap<>();
-                map.put("name", name);
-                map.put("email", email);
-                map.put("username", username);
+                map.put("name", txtName);
+                map.put("email", txtEmail);
+                map.put("username", txtUsername);
                 map.put("id", mAuth.getCurrentUser().getUid());
 
 
@@ -97,7 +97,6 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-
                             Toast.makeText(RegisterActivity.this, "Update the profile " +
                                     "for better expereince", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
