@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1024044328583",
+    "firebase_url": "https://sliit-hyko-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "sliit-hyko",
+    "storage_bucket": "sliit-hyko.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024044328583:android:7aa9d819809a11f1183a22",
+        "android_client_info": {
+          "package_name": "com.sliit.hyko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024044328583-7r3p9gheemi98t9857fdlfhb7fesqqic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuaNKoItpTil5xgoI-sOP0uxg6OottSH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024044328583-7r3p9gheemi98t9857fdlfhb7fesqqic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
