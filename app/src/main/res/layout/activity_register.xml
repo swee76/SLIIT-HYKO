@@ -7,11 +7,12 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
+    android:background="@color/colorWhite"
     tools:context=".RegisterActivity">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:src="@drawable/logo" />
 
     <EditText
@@ -21,6 +22,8 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background"
         android:hint="Username"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorPrimaryDark"
         android:padding="10dp" />
 
     <EditText
@@ -30,6 +33,8 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background"
         android:hint="Full Name"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorPrimaryDark"
         android:padding="10dp" />
 
     <EditText
@@ -39,6 +44,8 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background"
         android:hint="Email"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textEmailAddress"
         android:padding="10dp" />
 
@@ -49,6 +56,8 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background"
         android:hint="Password"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPassword"
         android:padding="10dp" />
 

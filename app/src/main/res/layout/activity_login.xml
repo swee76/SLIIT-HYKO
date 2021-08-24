@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
+    android:background="@color/colorWhite"
     tools:context=".LoginActivity">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:src="@drawable/logo" />
 
 
@@ -21,7 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background"
+        android:textColor="@color/colorBlack"
         android:hint="Email"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textEmailAddress"
         android:padding="10dp" />
 
@@ -32,6 +34,8 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background"
         android:hint="Password"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textPassword"
         android:padding="10dp" />
 
