@@ -1,56 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/page"
+    android:background="@color/colorWhite"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/icon_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/icon" />
-
-    <LinearLayout
-        android:id="@+id/linear_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="50dp"
+        tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:src="@drawable/logo" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="10dp" />
-
-        <Button
-            android:id="@+id/login"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/button_background"
-            android:text="Log in"
-            android:textAllCaps="true" />
+            android:layout_height="wrap_content">
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="10dp" />
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_grey_border_bottom"
+                >
 
-        <Button
-            android:id="@+id/register"
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/button_background"
-            android:text="Register"
-            android:textAllCaps="true" />
+            android:layout_height="match_parent"
+            tools:ignore="SpeakableTextPresentCheck">
 
-    </LinearLayout>
+        </androidx.viewpager.widget.ViewPager>
+
+    </RelativeLayout>
 
 
-</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/white_grey_border_top">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
