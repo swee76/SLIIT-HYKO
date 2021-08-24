@@ -53,7 +53,8 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/white_grey_border_top">
+            android:background="@drawable/white_grey_border_top"
+            app:menu="@menu/bottom_navigatin_menu">
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
