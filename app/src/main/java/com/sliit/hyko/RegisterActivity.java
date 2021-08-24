@@ -47,11 +47,11 @@ public class RegisterActivity extends AppCompatActivity {
 //        FirebaseApp.initializeApp();
 
         username = (EditText) findViewById(R.id.username);
-        name = (EditText) findViewById(R.id.name);
+        name = (EditText) findViewById(R.id.fullname);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         register = findViewById(R.id.register);
-        loginUser = findViewById(R.id.login_user);
+        loginUser = findViewById(R.id.txt_login);
 
         mRootRef = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -92,7 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
         pd.show();
 
 
-        mAuth.createUserWithEmailAndPassword(txtEmail, txtPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(txtEmail, txtPassword)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
 

@@ -10,14 +10,17 @@
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable-anydpi/ic_search.xml" value="0.26296296296296295" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable/button_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable/button_black.xml" value="0.11574074074074074" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable/edit_text_background.xml" value="0.3828125" />
+        <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable/edittext_background.xml" value="0.11574074074074074" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable/white_grey_border_bottom.xml" value="0.26296296296296295" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/drawable/white_grey_border_top.xml" value="0.26296296296296295" />
-        <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/activity_login.xml" value="0.21179624664879357" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
-        <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/activity_register.xml" value="0.23582089552238805" />
+        <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/activity_start.xml" value="0.1" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/layout_bottom_navigation_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/layout_center_viewpage.xml" value="0.25" />
         <entry key="..\:/Coding/Android/SLIIT-HYKO/app/src/main/res/layout/layout_top_tabs.xml" value="0.25" />
