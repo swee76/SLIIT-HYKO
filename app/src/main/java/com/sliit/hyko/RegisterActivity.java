@@ -1,8 +1,5 @@
 package com.sliit.hyko;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -94,33 +93,34 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth.createUserWithEmailAndPassword(txtEmail, txtPassword)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-            @Override
-            public void onSuccess(AuthResult authResult) {
-
-                HashMap<String, Object> map = new HashMap<>();
-                map.put("name", txtName);
-                map.put("email", txtEmail);
-                map.put("username", txtUsername);
-                map.put("id", mAuth.getCurrentUser().getUid());
-
-
-                mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            pd.dismiss();
-                            Toast.makeText(RegisterActivity.this, "Update the profile " +
-                                    "for better expereince", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            finish();
-                        }
-                    }
-                });
+                    public void onSuccess(AuthResult authResult) {
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
+                        HashMap<String, Object> map = new HashMap<>();
+                        map.put("name", txtName);
+                        map.put("email", txtEmail);
+                        map.put("username", txtUsername);
+                        map.put("id", mAuth.getCurrentUser().getUid());
+                        map.put("imageurl", "https://firebasestorage.googleapis.com/v0/b/sliit-hyko.appspot.com/o/default-pic.jpg?alt=media&token=8d8f23c7-9669-4ded-be57-e4a1ad65680e");
+                        map.put("bio", "");
+
+                        mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    pd.dismiss();
+                                    Toast.makeText(RegisterActivity.this, "Update the profile " +
+                                            "for better expereince", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        });
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pd.dismiss();
