@@ -28,25 +28,24 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.nav_home:
-                    return true;
+                    break;
                 case R.id.nav_search:
                     fragment = new SearchFragment();
                     switchFragment(fragment);
-                    return true;
+                    break;
                 case R.id.nav_post:
                     fragment = new AddPostFragment();
                     switchFragment(fragment);
-                    return true;
+                    break;
                 case R.id.nav_like:
                     fragment = new FavouritesFragment();
                     switchFragment(fragment);
-                    return true;
+                    break;
                 case R.id.nav_profile:
                     fragment = new ProfileFragment();
                     switchFragment(fragment);
-                    return true;
+                    break;
             }
-
             return false;
         }
     };
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.body_container, fragment);
         fragmentTransaction.commit();
     }
-
 
 
     @Override
