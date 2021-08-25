@@ -73,6 +73,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.Viewholder>{
             }
         });
 
+
         isLiked(post.getPostid(), holder.like);
         noOfLikes(post.getPostid(), holder.noOfLikes);
         getComments(post.getPostid(), holder.noOfComments);
