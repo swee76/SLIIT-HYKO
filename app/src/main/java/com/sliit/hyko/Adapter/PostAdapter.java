@@ -39,6 +39,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     }
 
+
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
