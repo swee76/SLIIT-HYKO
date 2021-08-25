@@ -1,6 +1,7 @@
 package com.sliit.hyko.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hendraanggrian.appcompat.widget.SocialTextView;
+import com.sliit.hyko.CommentActivity;
 import com.sliit.hyko.Model.Post;
 import com.sliit.hyko.Model.User;
 import com.sliit.hyko.R;
@@ -95,7 +97,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
                 }
             }
         });
+        holder.comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CommentActivity.class);
+                intent.putExtra("postId", post.getPostid());
+                intent.putExtra("authorId", post.getPublisher());
+                mContext.startActivity(intent);
+            }
+        });
 
+        holder.noOfComments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CommentActivity.class);
+                intent.putExtra("postId", post.getPostid());
+                intent.putExtra("authorId", post.getPublisher());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
