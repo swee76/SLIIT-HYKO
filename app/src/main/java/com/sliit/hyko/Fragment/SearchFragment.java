@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView;
+import com.sliit.hyko.Adapter.TagAdapter;
 import com.sliit.hyko.Adapter.UserAdapter;
 import com.sliit.hyko.Model.User;
 import com.sliit.hyko.R;
@@ -33,6 +34,11 @@ public class SearchFragment extends Fragment {
     private List<User> mUsers;
     private UserAdapter userAdapter;
 
+    private RecyclerView recyclerViewTags;
+    private List<String> mHashTags;
+    private List<String> mHashTagsCount;
+    private TagAdapter tagAdapter;
+
     private SocialAutoCompleteTextView search_bar;
 
     @Override
@@ -44,6 +50,15 @@ public class SearchFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        recyclerViewTags = view.findViewById(R.id.recycler_view_tags);
+        recyclerViewTags.setHasFixedSize(true);
+        recyclerViewTags.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mHashTags = new ArrayList<>();
+        mHashTagsCount = new ArrayList<>();
+        tagAdapter = new TagAdapter(getContext() , mHashTags , mHashTagsCount);
+        recyclerViewTags.setAdapter(tagAdapter);
+
         mUsers = new ArrayList<>();
         userAdapter = new UserAdapter(getContext(), mUsers, true);
         recyclerView.setAdapter(userAdapter);
@@ -52,6 +67,7 @@ public class SearchFragment extends Fragment {
 
 
         readUsers();
+        readTags();
 
         search_bar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -71,6 +87,28 @@ public class SearchFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void readTags() {
+        FirebaseDatabase.getInstance().getReference().child("HashTags").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mHashTags.clear();
+                mHashTagsCount.clear();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    mHashTags.add(snapshot.getKey());
+                    mHashTagsCount.add(snapshot.getChildrenCount() + "");
+                }
+
+                tagAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void readUsers() {
