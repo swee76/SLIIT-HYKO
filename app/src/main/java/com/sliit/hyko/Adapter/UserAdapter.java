@@ -63,6 +63,27 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         if (user.getId().equals(firebaseUser.getUid())){
             holder.btnFollow.setVisibility(View.GONE);
         }
+
+        holder.btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.btnFollow.getText().toString().equals(("follow"))){
+                    FirebaseDatabase.getInstance().getReference().child("Follow").
+                            child((firebaseUser.getUid())).child("following").child(user.getId()).setValue(true);
+
+                    FirebaseDatabase.getInstance().getReference().child("Follow").
+                            child(user.getId()).child("followers").child(firebaseUser.getUid()).setValue(true);
+
+//                    addNotification(user.getId());
+                } else {
+                    FirebaseDatabase.getInstance().getReference().child("Follow").
+                            child((firebaseUser.getUid())).child("following").child(user.getId()).removeValue();
+
+                    FirebaseDatabase.getInstance().getReference().child("Follow").
+                            child(user.getId()).child("followers").child(firebaseUser.getUid()).removeValue();
+                }
+            }
+        });
     }
 
     private void isFollowed(String id,final Button btnFollow) {
