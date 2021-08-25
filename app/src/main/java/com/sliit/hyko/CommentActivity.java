@@ -73,7 +73,7 @@ public class CommentActivity extends AppCompatActivity {
         commentList = new ArrayList<>();
         commentAdapter = new CommentAdapter(this, commentList, postId);
 
-
+        recyclerView.setAdapter(commentAdapter);
 
         addComment = findViewById(R.id.add_comment);
         imageProfile = findViewById(R.id.image_profile);
