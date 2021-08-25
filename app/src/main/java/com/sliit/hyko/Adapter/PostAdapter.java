@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 import java.util.List;
 
-public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.Viewholder>{
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
 
     private Context mContext;
     private List<Post> mPosts;
@@ -102,7 +102,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.Viewholder>{
         return mPosts.size();
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder{
+    public class Viewholder extends RecyclerView.ViewHolder {
 
         public ImageView imageProfile;
         public ImageView postImage;
@@ -155,7 +155,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.Viewholder>{
         });
     }
 
-    private void noOfLikes (String postId, final TextView text) {
+    private void noOfLikes(String postId, final TextView text) {
         FirebaseDatabase.getInstance().getReference().child("Likes").child(postId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -169,7 +169,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.Viewholder>{
         });
     }
 
-    private void isSaved (final String postId, final ImageView image) {
+    private void isSaved(final String postId, final ImageView image) {
         FirebaseDatabase.getInstance().getReference().child("Saves").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -189,7 +189,7 @@ public class PostAdapter extends  RecyclerView.Adapter<PostAdapter.Viewholder>{
         });
     }
 
-    private void getComments (String postId, final TextView text) {
+    private void getComments(String postId, final TextView text) {
         FirebaseDatabase.getInstance().getReference().child("Comments").child(postId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
