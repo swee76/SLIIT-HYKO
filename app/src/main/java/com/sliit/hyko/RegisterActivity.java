@@ -103,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                 map.put("username", txtUsername);
                 map.put("id", mAuth.getCurrentUser().getUid());
                 map.put("bio" , "");
-                map.put("imageurl" , "default");
+                map.put("imageurl" , "https://firebasestorage.googleapis.com/v0/b/sliit-hyko.appspot.com/o/default-pic.jpg?alt=media&token=8d8f23c7-9669-4ded-be57-e4a1ad65680e");
 
                 mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
