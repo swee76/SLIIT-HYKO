@@ -1,6 +1,7 @@
 package com.sliit.hyko.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sliit.hyko.Adapter.PhotoAdapter;
+import com.sliit.hyko.EditProfileActivity;
 import com.sliit.hyko.Model.Post;
 import com.sliit.hyko.Model.User;
 import com.sliit.hyko.R;
@@ -121,7 +123,8 @@ public class ProfileFragment extends Fragment {
                 String btnText = editProfile.getText().toString();
 
                 if (btnText.equals("Edit profile")) {
-//hasiya
+                    startActivity(new Intent(getContext(), EditProfileActivity.class));
+
                 } else {
                     if (btnText.equals("follow")) {
                         FirebaseDatabase.getInstance().getReference().child("Follow").child(fUser.getUid())

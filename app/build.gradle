@@ -60,5 +60,8 @@ dependencies {
 
     //image loader
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Material edit text
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
 }
 apply plugin: 'com.google.gms.google-services'
