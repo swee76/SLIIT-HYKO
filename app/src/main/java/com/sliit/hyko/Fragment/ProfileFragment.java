@@ -95,7 +95,56 @@ public class ProfileFragment extends Fragment {
         getFollowersAndFollowingCount();
         getPostCount();
 
+        if (profileId.equals(fUser.getUid())) {
+            editProfile.setText("Edit profile");
+        } else {
+            checkFollowingStatus();
+        }
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String btnText = editProfile.getText().toString();
+
+                if (btnText.equals("Edit profile")) {
+                   // startActivity(new Intent(getContext(), EditProfileActivity.class));
+                } else {
+                    if (btnText.equals("follow")) {
+                        FirebaseDatabase.getInstance().getReference().child("Follow").child(fUser.getUid())
+                                .child("following").child(profileId).setValue(true);
+
+                        FirebaseDatabase.getInstance().getReference().child("Follow").child(profileId)
+                                .child("followers").child(fUser.getUid()).setValue(true);
+                    } else {
+                        FirebaseDatabase.getInstance().getReference().child("Follow").child(fUser.getUid())
+                                .child("following").child(profileId).removeValue();
+
+                        FirebaseDatabase.getInstance().getReference().child("Follow").child(profileId)
+                                .child("followers").child(fUser.getUid()).removeValue();
+                    }
+                }
+            }
+        });
+
         return  view;
+    }
+
+    private void checkFollowingStatus() {
+        FirebaseDatabase.getInstance().getReference().child("Follow").child(fUser.getUid()).child("following").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(profileId).exists()) {
+                    editProfile.setText("following");
+                } else {
+                    editProfile.setText("follow");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void getPostCount() {
