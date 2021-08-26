@@ -70,6 +70,11 @@ public class CommentActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+        Intent intent = getIntent();
+        postId = intent.getStringExtra("postId");
+        authorId = intent.getStringExtra("authorId");
+
         commentList = new ArrayList<>();
         commentAdapter = new CommentAdapter(this, commentList, postId);
 
@@ -79,9 +84,6 @@ public class CommentActivity extends AppCompatActivity {
         imageProfile = findViewById(R.id.image_profile);
         post = findViewById(R.id.post);
 
-        Intent intent = getIntent();
-        postId = intent.getStringExtra("postId");
-        authorId = intent.getStringExtra("authorId");
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
 
