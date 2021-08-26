@@ -1,6 +1,7 @@
 package com.sliit.hyko.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sliit.hyko.MainActivity;
 import com.sliit.hyko.Model.Comment;
 import com.sliit.hyko.Model.User;
 import com.sliit.hyko.R;
@@ -76,6 +78,24 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        holder.comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MainActivity.class);
+                intent.putExtra("publisherId", comment.getPublisher());
+                mContext.startActivity(intent);
+            }
+        });
+
+        holder.imageProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MainActivity.class);
+                intent.putExtra("publisherId", comment.getPublisher());
+                mContext.startActivity(intent);
             }
         });
     }

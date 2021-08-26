@@ -58,8 +58,16 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new ProfileFragment();
                             break;
                     }
-                    if (selectedFragment != null) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    Bundle intent = getIntent().getExtras();
+                    if (intent != null) {
+                        String profileId = intent.getString("publisherId");
+
+                        getSharedPreferences("PROFILE", MODE_PRIVATE).edit().putString("profileId", profileId).apply();
+
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+                        bottomNavigationView.setSelectedItemId(R.id.nav_profile);
+                    } else {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HomeFragment()).commit();
                     }
 
                     return false;

@@ -1,5 +1,6 @@
 package com.sliit.hyko.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +65,16 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        String data = getContext().getSharedPreferences("PROFILE", Context.MODE_PRIVATE).getString("profileId","none");
+
+        if (data.equals("none")) {
+            profileId = fUser.getUid();
+        } else {
+            profileId = data;
+            getContext().getSharedPreferences("PROFILE", Context.MODE_PRIVATE).edit().clear().apply();
+        }
+
         profileId = fUser.getUid();
 
 
