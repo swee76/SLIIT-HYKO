@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sliit.hyko.Fragment.PostDetailFragment;
 import com.sliit.hyko.Model.Post;
 import com.sliit.hyko.R;
 import com.squareup.picasso.Picasso;
@@ -44,8 +46,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
             public void onClick(View v) {
                 mContext.getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("postid", post.getPostid()).apply();
 
-//                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.fragment_container, new PostDetailFragment()).commit();
+                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new PostDetailFragment()).commit();
             }
         });
 
