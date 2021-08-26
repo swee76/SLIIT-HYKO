@@ -121,7 +121,7 @@ public class ProfileFragment extends Fragment {
                 String btnText = editProfile.getText().toString();
 
                 if (btnText.equals("Edit profile")) {
-
+//hasiya
                 } else {
                     if (btnText.equals("follow")) {
                         FirebaseDatabase.getInstance().getReference().child("Follow").child(fUser.getUid())
