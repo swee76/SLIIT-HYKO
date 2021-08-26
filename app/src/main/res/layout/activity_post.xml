@@ -17,6 +17,7 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorWhite"
             android:background="?android:attr/windowBackground"
             android:id="@+id/toolbar">
 
@@ -66,6 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            app:backgroundTint="@color/colorWhite"
+            android:popupTheme="@color/colorWhite"
+            android:textColorHint="#515151"
+            android:textColor="#1B1B1B"
             android:hint="Description..."
             android:maxLines="5"
             android:id="@+id/description"

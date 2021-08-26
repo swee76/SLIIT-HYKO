@@ -30,6 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#2B2B2B"
             android:maxLines="5"
             android:text="This is a comment"
             android:id="@+id/comment"/>
