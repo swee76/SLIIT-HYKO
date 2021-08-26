@@ -92,8 +92,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
                 if (holder.like.getTag().equals("like")) {
                     FirebaseDatabase.getInstance().getReference().child("Likes")
                             .child(post.getPostid()).child(firebaseUser.getUid()).setValue(true);
-
-//                    addNotification(post.getPostid(), post.getPublisher());
+                    addNotification(post.getPostid(), post.getPublisher());
                 } else {
                     FirebaseDatabase.getInstance().getReference().child("Likes")
                             .child(post.getPostid()).child(firebaseUser.getUid()).removeValue();

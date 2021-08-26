@@ -21,6 +21,7 @@ import com.sliit.hyko.Model.User;
 import com.sliit.hyko.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -74,7 +75,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                     FirebaseDatabase.getInstance().getReference().child("Follow").
                             child(user.getId()).child("followers").child(firebaseUser.getUid()).setValue(true);
 
-//                    addNotification(user.getId());
+                    addNotification(user.getId());
                 } else {
                     FirebaseDatabase.getInstance().getReference().child("Follow").
                             child((firebaseUser.getUid())).child("following").child(user.getId()).removeValue();
@@ -84,6 +85,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                 }
             }
         });
+    }
+
+    private void addNotification(String userId) {
+        HashMap<String, Object> map = new HashMap<>();
+
+        map.put("userid", userId);
+        map.put("text", "started following you.");
+        map.put("postid", "");
+        map.put("isPost", false);
+
+        FirebaseDatabase.getInstance().getReference().child("Notifications").child(firebaseUser.getUid()).push().setValue(map);
     }
 
     private void isFollowed(String id,final Button btnFollow) {
