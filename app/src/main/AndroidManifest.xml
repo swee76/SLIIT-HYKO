@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SLIITHYKO">
         <activity
+            android:name=".FollowersActivity"
+            android:exported="true" />
+        <activity
             android:name=".EditProfileActivity"
             android:exported="true" />
         <activity

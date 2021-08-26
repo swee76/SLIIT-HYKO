@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sliit.hyko.Adapter.PhotoAdapter;
 import com.sliit.hyko.EditProfileActivity;
+import com.sliit.hyko.FollowersActivity;
 import com.sliit.hyko.Model.Post;
 import com.sliit.hyko.Model.User;
 import com.sliit.hyko.R;
@@ -162,7 +163,25 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        followers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), FollowersActivity.class);
+                intent.putExtra("id", profileId);
+                intent.putExtra("title", "followers");
+                startActivity(intent);
+            }
+        });
 
+        following.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), FollowersActivity.class);
+                intent.putExtra("id", profileId);
+                intent.putExtra("title", "followings");
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
