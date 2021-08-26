@@ -72,7 +72,7 @@ public class ProfileFragment extends Fragment {
             profileId = fUser.getUid();
         } else {
             profileId = data;
-            getContext().getSharedPreferences("PROFILE", Context.MODE_PRIVATE).edit().clear().apply();
+//            getContext().getSharedPreferences("PROFILE", Context.MODE_PRIVATE).edit().clear().apply();
         }
 
         profileId = fUser.getUid();

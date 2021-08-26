@@ -28,54 +28,53 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListner);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_home:
+                        selectedFragment = new HomeFragment();
+                        break;
+                    case R.id.nav_search:
+                        selectedFragment = new SearchFragment();
+                        break;
+                    case R.id.nav_add:
+                        selectedFragment = null;
+                        startActivity(new Intent(MainActivity.this, PostActivity.class));
+                        break;
+                    case R.id.nav_heart:
+                        selectedFragment = new NotificationFragment();
+                        break;
+                    case R.id.nav_profile:
+                        SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+                        editor.putString("profiled", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        editor.apply();
+                        selectedFragment = new ProfileFragment();
+                        break;
+                }
 
+                if (selectedFragment != null){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , selectedFragment).commit();
+                }
+
+                return false;
+            }
+        });
+
+        Bundle intent = getIntent().getExtras();
+        if (intent != null) {
+            String profileId = intent.getString("publisherId");
+
+            getSharedPreferences("PROFILE", MODE_PRIVATE).edit().putString("profileId", profileId).apply();
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+            bottomNavigationView.setSelectedItemId(R.id.nav_profile);
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HomeFragment()).commit();
+        }
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListner =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
-                            break;
-                        case R.id.nav_search:
-                            selectedFragment = new SearchFragment();
-                            break;
-                        case R.id.nav_add:
-                            selectedFragment = null;
-                            startActivity(new Intent(MainActivity.this, PostActivity.class));
-                            break;
-                        case R.id.nav_heart:
-                            selectedFragment = new NotificationFragment();
-                            break;
-                        case R.id.nav_profile:
-                            SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
-                            editor.putString("profiled", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                            editor.apply();
-                            selectedFragment = new ProfileFragment();
-                            break;
-                    }
-                    Bundle intent = getIntent().getExtras();
-                    if (intent != null) {
-                        String profileId = intent.getString("publisherId");
-
-                        getSharedPreferences("PROFILE", MODE_PRIVATE).edit().putString("profileId", profileId).apply();
-
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
-                        bottomNavigationView.setSelectedItemId(R.id.nav_profile);
-                    } else {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HomeFragment()).commit();
-                    }
-
-                    return false;
-                }
-            };
 }
-
-
 
 
 
