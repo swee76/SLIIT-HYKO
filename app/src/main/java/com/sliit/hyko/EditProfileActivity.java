@@ -38,6 +38,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class EditProfileActivity extends AppCompatActivity {
 
 
+
     private ImageView close;
     private CircleImageView imageProfile;
     private TextView save;
@@ -56,7 +57,6 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-
 
         close = findViewById(R.id.close);
         imageProfile = findViewById(R.id.image_profile);
