@@ -50,11 +50,12 @@
         <entry key="..\:/Users/hasin/AndroidStudioProjects/SLIIT-HYKO/app/src/main/res/layout/post_item.xml" value="0.16576086956521738" />
         <entry key="..\:/Users/hasin/AndroidStudioProjects/SLIIT-HYKO/app/src/main/res/layout/tag_item.xml" value="0.16576086956521738" />
         <entry key="..\:/Users/hasin/AndroidStudioProjects/SLIIT-HYKO/app/src/main/res/layout/user_item.xml" value="0.16576086956521738" />
+        <entry key="app/src/main/res/layout/fragment_post_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/photo_item.xml" value="0.24114583333333334" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
