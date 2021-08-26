@@ -96,6 +96,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="10sp"
                                 android:text="POSTS"/>
 
@@ -119,6 +120,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="10sp"
                                 android:text="FOLLOWERS"/>
 
@@ -142,6 +144,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="10sp"
                                 android:text="FOLLOWING"/>
 
@@ -151,7 +154,7 @@
 
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
                         android:padding="5dp"
                         android:layout_marginTop="10dp"
                         android:text="EDIT PROFILE"
