@@ -27,6 +27,7 @@ import com.sliit.hyko.EditProfileActivity;
 import com.sliit.hyko.FollowersActivity;
 import com.sliit.hyko.Model.Post;
 import com.sliit.hyko.Model.User;
+import com.sliit.hyko.OptionsActivity;
 import com.sliit.hyko.R;
 import com.squareup.picasso.Picasso;
 
@@ -180,6 +181,13 @@ public class ProfileFragment extends Fragment {
                 intent.putExtra("id", profileId);
                 intent.putExtra("title", "followings");
                 startActivity(intent);
+            }
+        });
+
+        options.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), OptionsActivity.class));
             }
         });
 
