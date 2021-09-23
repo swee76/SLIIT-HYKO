@@ -24,12 +24,12 @@
         android:textSize="18sp"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/logout"
+        android:layout_width="392dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Log out"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_margin="10dp"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
 </LinearLayout>
