@@ -109,12 +109,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private void addNotification(String userId) {
         HashMap<String, Object> map = new HashMap<>();
 
-        map.put("userid", userId);
+        map.put("userid", firebaseUser.getUid());
         map.put("text", "started following you.");
         map.put("postid", "");
         map.put("isPost", false);
 
-        FirebaseDatabase.getInstance().getReference().child("Notifications").child(firebaseUser.getUid()).push().setValue(map);
+        FirebaseDatabase.getInstance().getReference().child("Notifications").child(userId).push().setValue(map);
     }
 
     private void isFollowed(String id,final Button btnFollow) {
