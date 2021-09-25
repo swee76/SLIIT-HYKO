@@ -219,24 +219,19 @@ public class ProfileFragment extends Fragment {
                                 }
                             }
                         }
-
                         postAdapterSaves.notifyDataSetChanged();
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
                 });
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
     }
 
     private void myPhotos() {

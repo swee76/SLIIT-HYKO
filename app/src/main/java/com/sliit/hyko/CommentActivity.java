@@ -140,7 +140,6 @@ public class CommentActivity extends AppCompatActivity {
                     Comment comment = snapshot.getValue(Comment.class);
                     commentList.add(comment);
                 }
-
                 commentAdapter.notifyDataSetChanged();
             }
 

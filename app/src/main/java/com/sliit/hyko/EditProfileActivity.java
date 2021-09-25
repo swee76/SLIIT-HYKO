@@ -121,6 +121,8 @@ public class EditProfileActivity extends AppCompatActivity {
         map.put("bio", bio.getText().toString());
 
         FirebaseDatabase.getInstance().getReference().child("Users").child(fUser.getUid()).updateChildren(map);
+
+
     }
 
     private void uploadImage() {
